@@ -1,0 +1,459 @@
+/* MemeBeat AI Design System & Styling Rules */
+:root {
+  /* Dark Cyberpunk Theme Tokens */
+  --bg-primary: #080711;
+  --bg-secondary: #0f0e26;
+  --text-primary: #ffffff;
+  --text-secondary: #a0aec0;
+  
+  --accent-cyan: #00f2fe;
+  --accent-purple: #9b51e0;
+  --accent-pink: #ff007f;
+  --accent-green: #39ff14;
+  --accent-yellow: #ffd700;
+  
+  --glass-bg: rgba(15, 14, 38, 0.45);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-glow: rgba(0, 242, 254, 0.15);
+  --glass-blur: blur(20px);
+  
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Outfit', sans-serif;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.light-theme {
+  /* Light Futuristic Theme Tokens */
+  --bg-primary: #f0f3f8;
+  --bg-secondary: #ffffff;
+  --text-primary: #1a1a2e;
+  --text-secondary: #64748b;
+  
+  --accent-cyan: #0ea5e9;
+  --accent-purple: #8b5cf6;
+  --accent-pink: #ec4899;
+  --accent-green: #10b981;
+  --accent-yellow: #f59e0b;
+  
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(14, 165, 233, 0.15);
+  --glass-glow: rgba(14, 165, 233, 0.08);
+  --glass-blur: blur(20px);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+/* Custom Scrollbar for premium presentation */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-cyan);
+}
+
+/* Modern Glassmorphic Card Styling */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), 
+              0 0 15px 0 var(--glass-glow);
+  padding: 24px;
+  transition: var(--transition);
+}
+
+.glass-panel:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.45), 
+              0 0 25px 0 var(--glass-glow);
+}
+
+/* Glowing Neon Buttons */
+.btn-neon {
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+  border: none;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+}
+
+.btn-neon:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 242, 254, 0.5),
+              0 0 10px rgba(155, 81, 224, 0.4);
+}
+
+.btn-neon:active {
+  transform: translateY(1px);
+}
+
+.btn-neon-outline {
+  background: transparent;
+  border: 2px solid var(--accent-cyan);
+  color: var(--accent-cyan);
+  padding: 10px 22px;
+  border-radius: 12px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-neon-outline:hover {
+  background: rgba(0, 242, 254, 0.1);
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Glow Text */
+.glow-text-cyan {
+  text-shadow: 0 0 10px rgba(0, 242, 254, 0.6);
+  color: var(--accent-cyan);
+}
+
+.glow-text-pink {
+  text-shadow: 0 0 10px rgba(255, 0, 127, 0.6);
+  color: var(--accent-pink);
+}
+
+/* Grid Layouts */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: 100vh;
+}
+
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Sidebar Custom Styling */
+.sidebar {
+  background: rgba(10, 8, 28, 0.8);
+  backdrop-filter: blur(10px);
+  border-right: 1px solid var(--glass-border);
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 20px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  border-radius: 14px;
+  margin-bottom: 8px;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.nav-link.active {
+  background: linear-gradient(90deg, rgba(0, 242, 254, 0.15) 0%, rgba(155, 81, 224, 0.05) 100%);
+  border-left: 3px solid var(--accent-cyan);
+}
+
+/* Keyframe Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes beat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes progress-loading {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-beat {
+  animation: beat 1s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Auth Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(5, 4, 10, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Rhythm Game Arrows & Lanes styling */
+.rhythm-container {
+  position: relative;
+  background: rgba(10, 9, 26, 0.9);
+  border-radius: 20px;
+  overflow: hidden;
+  height: 60vh;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.rhythm-lane {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 25%;
+  border-right: 1px solid rgba(255, 255, 255, 0.02);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 60px;
+}
+
+.rhythm-lane:last-child {
+  border-right: none;
+}
+
+.rhythm-arrow-target {
+  width: 50px;
+  height: 50px;
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.4);
+  transition: var(--transition);
+}
+
+.rhythm-arrow-target.active {
+  transform: scale(1.15);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 20px var(--accent-cyan);
+  color: var(--accent-cyan);
+}
+
+.falling-note {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #fff;
+  box-shadow: 0 0 15px currentColor;
+  transform: translateY(0);
+}
+
+/* UI Utility Classes */
+.badge {
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.badge-cyan { background: rgba(0, 242, 254, 0.15); color: var(--accent-cyan); border: 1px solid rgba(0, 242, 254, 0.3); }
+.badge-purple { background: rgba(155, 81, 224, 0.15); color: var(--accent-purple); border: 1px solid rgba(155, 81, 224, 0.3); }
+.badge-pink { background: rgba(255, 0, 127, 0.15); color: var(--accent-pink); border: 1px solid rgba(255, 0, 127, 0.3); }
+.badge-green { background: rgba(57, 255, 20, 0.15); color: var(--accent-green); border: 1px solid rgba(57, 255, 20, 0.3); }
+.badge-yellow { background: rgba(255, 215, 0, 0.15); color: var(--accent-yellow); border: 1px solid rgba(255, 215, 0, 0.3); }
+
+/* ==========================================================================
+   DYNAMIC MOOD-BASED THEME ENGINE OVERRIDES
+   ========================================================================== */
+
+/* 1. HAPPY: Yellow + Orange gradient theme */
+body.mood-happy {
+  --bg-primary: #150f00;
+  --bg-secondary: #271a00;
+  --accent-cyan: #ffb700;
+  --accent-purple: #ff6200;
+  --accent-pink: #ffd700;
+  --accent-green: #ffa500;
+  --glass-bg: rgba(39, 26, 0, 0.5);
+  --glass-border: rgba(255, 183, 0, 0.18);
+  --glass-glow: rgba(255, 98, 0, 0.15);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 2. RELAXED: Green + Cyan theme */
+body.mood-relaxed {
+  --bg-primary: #00120b;
+  --bg-secondary: #002418;
+  --accent-cyan: #00f2fe;
+  --accent-purple: #00c853;
+  --accent-pink: #00e676;
+  --accent-green: #39ff14;
+  --glass-bg: rgba(0, 36, 24, 0.5);
+  --glass-border: rgba(0, 242, 254, 0.18);
+  --glass-glow: rgba(0, 200, 83, 0.15);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: relaxed-sway-glow 6s infinite alternate;
+}
+
+/* 3. FOCUSED: Royal Blue theme */
+body.mood-focused {
+  --bg-primary: #02091d;
+  --bg-secondary: #05163a;
+  --accent-cyan: #2979ff;
+  --accent-purple: #1a237e;
+  --accent-pink: #3d5afe;
+  --accent-green: #82b1ff;
+  --glass-bg: rgba(5, 22, 58, 0.5);
+  --glass-border: rgba(41, 121, 255, 0.18);
+  --glass-glow: rgba(41, 121, 255, 0.12);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: focused-steady-glow 5s infinite alternate;
+}
+
+/* 4. ENERGETIC: Purple + Neon theme */
+body.mood-energetic {
+  --bg-primary: #0f001f;
+  --bg-secondary: #1d003a;
+  --accent-cyan: #b200ff;
+  --accent-purple: #3d0066;
+  --accent-pink: #d500f9;
+  --accent-green: #39ff14;
+  --glass-bg: rgba(29, 0, 58, 0.5);
+  --glass-border: rgba(178, 0, 255, 0.2);
+  --glass-glow: rgba(213, 0, 249, 0.2);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: energetic-pulse-glow 2s infinite alternate;
+}
+
+/* 5. SAD: Dark Blue theme */
+body.mood-sad {
+  --bg-primary: #000c24;
+  --bg-secondary: #00163d;
+  --accent-cyan: #38bdf8;
+  --accent-purple: #1d4ed8;
+  --accent-pink: #6366f1;
+  --accent-green: #06b6d4;
+  --glass-bg: rgba(0, 22, 61, 0.5);
+  --glass-border: rgba(56, 189, 248, 0.18);
+  --glass-glow: rgba(29, 78, 216, 0.15);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 6. ANGRY: Red + Black theme with heartbeat pulse */
+body.mood-angry {
+  --bg-primary: #0c0202;
+  --bg-secondary: #1a0505;
+  --accent-cyan: #ef4444;
+  --accent-purple: #7f1d1d;
+  --accent-pink: #f87171;
+  --accent-green: #dc2626;
+  --glass-bg: rgba(26, 5, 5, 0.6);
+  --glass-border: rgba(239, 68, 68, 0.2);
+  --glass-glow: rgba(127, 29, 29, 0.25);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: pulse-angry-glow 3s infinite alternate;
+}
+
+/* 7. EXCITED: Pink + Purple theme with sparkling glows */
+body.mood-excited {
+  --bg-primary: #1c0012;
+  --bg-secondary: #350022;
+  --accent-cyan: #ff007f;
+  --accent-purple: #7a0099;
+  --accent-pink: #ff4081;
+  --accent-green: #e040fb;
+  --glass-bg: rgba(53, 0, 34, 0.5);
+  --glass-border: rgba(255, 0, 127, 0.22);
+  --glass-glow: rgba(255, 64, 129, 0.25);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: excited-glow-effects 4s infinite alternate;
+}
+
+@keyframes relaxed-sway-glow {
+  0% { box-shadow: inset 0 0 40px rgba(0, 200, 83, 0.05); }
+  100% { box-shadow: inset 0 0 80px rgba(0, 242, 254, 0.15); }
+}
+
+@keyframes focused-steady-glow {
+  0% { box-shadow: inset 0 0 30px rgba(41, 121, 255, 0.03); }
+  100% { box-shadow: inset 0 0 60px rgba(41, 121, 255, 0.1); }
+}
+
+@keyframes energetic-pulse-glow {
+  0% { box-shadow: inset 0 0 50px rgba(213, 0, 249, 0.1); }
+  100% { box-shadow: inset 0 0 90px rgba(57, 255, 20, 0.2); }
+}
+
+@keyframes pulse-angry-glow {
+  0% { box-shadow: inset 0 0 40px rgba(239, 68, 68, 0.08); }
+  100% { box-shadow: inset 0 0 90px rgba(239, 68, 68, 0.22); }
+}
+
+@keyframes excited-glow-effects {
+  0% { box-shadow: inset 0 0 50px rgba(255, 0, 127, 0.08); }
+  100% { box-shadow: inset 0 0 100px rgba(122, 0, 153, 0.22); }
+}

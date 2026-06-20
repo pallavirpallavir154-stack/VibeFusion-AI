@@ -1,0 +1,8 @@
+Flask==3.0.3
+Flask-CORS==4.0.1
+Flask-Bcrypt==1.0.1
+PyJWT==2.8.0
+tensorflow>=2.15.0
+numpy
+pandas
+scikit-learn
